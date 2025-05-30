@@ -15,7 +15,7 @@ export default function LeadDetails() {
   const [leadOwner, setLeadOwner] = useState("");
 
   useEffect(() => {
-    axios.get("http://35.177.100.215:8002/lead/38")
+    axios.get(`${import.meta.env.VITE_APP_API_BASE_URL}/lead/38`)
       .then((response) => {
         const data = response.data;
         setLead(data);
@@ -44,7 +44,7 @@ export default function LeadDetails() {
 
   console.log("Payload being sent:", payload);
 
-  axios.patch("http://35.177.100.215:8002/lead/38/edit", payload, {
+  axios.patch(`${import.meta.env.VITE_APP_API_BASE_URL}/lead/38/edit`, payload, {
     headers: { "Content-Type": "application/json" }
   })
   .then((response) => {
